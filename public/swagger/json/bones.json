@@ -1,0 +1,433 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ailab Api server",
+        "license": {
+            "name": "MIT"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://internal.ai.qa.com.cn/",
+            "description": "qa Api server"
+        },
+        {
+            "url": "http://internal.ai.com.cn/",
+            "description": "internal Api server"
+        },
+        {
+            "url": "http://127.0.0.1/",
+            "description": "ip Api server"
+        },
+        {
+            "url": "http://localhost2/ailabv1/public/index.php/",
+            "description": "local Api server"
+        }
+    ],
+    "paths": {
+        "/class_ct_api/hello": {
+            "get": {
+                "tags": [
+                    "ct"
+                ],
+                "summary": "hello",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "描述",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "hello {{$name}}"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                },
+                "operationId": "helloUsingGET"
+            }
+        },
+        "/class_ct_api/get_list": {
+            "get": {
+                "tags": [
+                    "ct"
+                ],
+                "summary": "get_list",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "description": "类别",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "orderby",
+                        "in": "query",
+                        "description": "排序",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "get_listUsingGET"
+            }
+        },
+        "/anti_spam_api/getStudentInfo": {
+            "get": {
+                "tags": [
+                    "antispam"
+                ],
+                "summary": "根据学生id 获取学生信息",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "学生id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "返回数据格式,1:Echarts格式,默认需解析格式",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getStudentInfoUsingGET"
+            }
+        },
+        "/backtrack/channel/get": {
+            "get": {
+                "tags": [
+                    "渠道分支"
+                ],
+                "summary": "获取渠道分支",
+                "parameters": [
+                    {
+                        "name": "channel",
+                        "in": "query",
+                        "description": "渠道",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/BacktrackResponse"
+                        }
+                    }
+                },
+                "operationId": "getUsingGET"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "ct",
+            "description": ""
+        },
+        {
+            "name": "antispam",
+            "description": ""
+        },
+        {
+            "name": "渠道分支",
+            "description": ""
+        }
+    ],
+    "definitions": {
+        "BacktrackResponse": {
+            "title": "BacktrackResponse",
+            "description": "BacktrackResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "example": "成功"
+                },
+                "request_id": {
+                    "title": "request_id",
+                    "description": "request_id",
+                    "type": "string",
+                    "format": "string",
+                    "example": 1568279892931395
+                },
+                "data": {
+                    "$ref": "#/definitions/BacktrackChannelData"
+                }
+            },
+            "type": "object"
+        },
+        "BacktrackChannelData": {
+            "title": "BacktrackChannelData",
+            "description": "BacktrackChannelData",
+            "properties": {
+                "backtrack_channel": {
+                    "$ref": "#/definitions/BacktrackChannel"
+                }
+            },
+            "type": "object"
+        },
+        "BacktrackChannel": {
+            "title": "BacktrackChannel",
+            "description": "BacktrackChannel",
+            "properties": {
+                "id": {
+                    "title": "",
+                    "description": "外教id",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "channel": {
+                    "title": "",
+                    "description": "渠道",
+                    "type": "integer",
+                    "format": "string",
+                    "example": "kuaishou2"
+                },
+                "hs_notify": {
+                    "title": "",
+                    "description": "弹框",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 1
+                },
+                "jk_notify": {
+                    "title": "",
+                    "description": "健告",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 1
+                }
+            },
+            "type": "object"
+        },
+        "TeaDataResponse": {
+            "title": "TeaDataResponse",
+            "description": "TeaDataResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "example": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "example": 1568279892.931395
+                },
+                "data": {
+                    "$ref": "#/definitions/TeaDataList"
+                }
+            },
+            "type": "object"
+        },
+        "TeaDataList": {
+            "title": "TeaDataList",
+            "description": "TeaDataList",
+            "properties": {
+                "total_page": {
+                    "title": "",
+                    "description": "总页数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "total": {
+                    "title": "",
+                    "description": "总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "isOrder": {
+                    "title": "",
+                    "description": "是否排序0否1是",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "data": {
+                    "title": "",
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TeaData"
+                    },
+                    "default": "[{'teacher_id':25,'count':30},{'teacher_id':45,'count':50}]"
+                }
+            },
+            "type": "object"
+        },
+        "TeaData": {
+            "title": "TeaData",
+            "description": "TeaData",
+            "properties": {
+                "teacher_id": {
+                    "title": "",
+                    "description": "外教id",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "count": {
+                    "title": "",
+                    "description": "问题课总量",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "complain_num": {
+                    "title": "",
+                    "description": "投诉课总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "tea_low_num": {
+                    "title": "",
+                    "description": "外教低苹果分数量",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "gray_rate": {
+                    "title": "",
+                    "description": "灰课率",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "finish_rate": {
+                    "title": "",
+                    "description": "完课率",
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.235698
+                },
+                "complain_rate": {
+                    "title": "",
+                    "description": "投诉率",
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.235698
+                },
+                "npf_rate": {
+                    "title": "",
+                    "description": "NPF率",
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.235698
+                },
+                "as": {
+                    "title": "",
+                    "description": "AS课总数",
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.235698
+                },
+                "tit": {
+                    "title": "",
+                    "description": "TIT课总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "tns": {
+                    "title": "",
+                    "description": "TNS课总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "tc": {
+                    "title": "",
+                    "description": "TC课总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "total": {
+                    "title": "",
+                    "description": "完课数量",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "tea_entry_days": {
+                    "title": "",
+                    "description": "入职天数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "top_points": {
+                    "title": "",
+                    "description": "top 问题点",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": "['投诉','外教低苹果分']"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "host": "http://internal.ai.qa.com.cn/",
+    "basePath": "/",
+    "consumes": "application/json",
+    "produces": "application/json"
+}

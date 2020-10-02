@@ -1,0 +1,852 @@
+{
+    "openapi": "3.0.0",
+    "components": {
+        "schemas": {
+            "ApiCodeTest": {
+                "title": "ApiCode model",
+                "description": "ApiCode model",
+                "properties": {
+                    "code": {
+                        "title": "自定义响应码",
+                        "description": "自定义响应码",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 200
+                    },
+                    "msg": {
+                        "title": "响应信息",
+                        "description": "响应信息",
+                        "type": "string",
+                        "format": "string",
+                        "default": "成功"
+                    },
+                    "m_timestamp": {
+                        "title": "绝对时间戳",
+                        "description": "绝对时间戳",
+                        "type": "number",
+                        "format": "float",
+                        "default": 1568279892.931395
+                    },
+                    "data": {
+                        "title": "返回数据",
+                        "description": "返回数据",
+                        "$ref": "#/components/schemas/HighVideos"
+                    }
+                },
+                "type": "object"
+            },
+            "BaseInfoResponse": {
+                "title": "BaseInfoResponse",
+                "description": "BaseInfoResponse",
+                "properties": {
+                    "code": {
+                        "title": "自定义响应码",
+                        "description": "自定义响应码",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 0
+                    },
+                    "msg": {
+                        "title": "响应信息",
+                        "description": "响应信息",
+                        "type": "string",
+                        "format": "string",
+                        "example": "成功"
+                    },
+                    "m_timestamp": {
+                        "title": "绝对时间戳",
+                        "description": "绝对时间戳",
+                        "type": "number",
+                        "format": "float",
+                        "example": 1568279892.931395
+                    },
+                    "data": {
+                        "title": "返回数据",
+                        "description": "返回数据",
+                        "$ref": "#/components/schemas/BaseInfo"
+                    }
+                },
+                "type": "object"
+            },
+            "BaseInfo": {
+                "title": "BaseInfo",
+                "description": "BaseInfo",
+                "properties": {
+                    "appeal": {
+                        "title": "",
+                        "description": "外教诉求",
+                        "type": "string",
+                        "format": "string",
+                        "example": "活泼,男"
+                    },
+                    "class_time": {
+                        "title": "",
+                        "description": "上课时间",
+                        "type": "string",
+                        "format": "string",
+                        "example": "2019-09-13 20:00:00"
+                    },
+                    "class_type": {
+                        "title": "",
+                        "description": "课堂类型",
+                        "type": "string",
+                        "format": "string",
+                        "example": "主修-UA"
+                    },
+                    "classroom": {
+                        "title": "",
+                        "description": "教室地址",
+                        "type": "string",
+                        "format": "string",
+                        "example": "jz46dff8ce1ba64bd1924ffb9288bed943"
+                    },
+                    "course_name": {
+                        "title": "",
+                        "description": "课程名",
+                        "type": "string",
+                        "format": "string",
+                        "example": "新版VIPKID主修课程"
+                    },
+                    "good_rate": {
+                        "title": "",
+                        "description": "好评率",
+                        "type": "string",
+                        "format": "string",
+                        "example": "100%"
+                    },
+                    "level": {
+                        "title": "",
+                        "description": "等级",
+                        "type": "string",
+                        "format": "string",
+                        "example": "MC-L2-U10-LC1-6"
+                    },
+                    "ppt_name": {
+                        "title": "",
+                        "description": "ppt名",
+                        "type": "string",
+                        "format": "string",
+                        "example": "MC-L2-U10-LC1-6"
+                    },
+                    "present_rate": {
+                        "title": "",
+                        "description": "出勤率",
+                        "type": "string",
+                        "format": "string",
+                        "example": "100%"
+                    },
+                    "student_avatar": {
+                        "title": "",
+                        "description": "学生头像",
+                        "type": "string",
+                        "format": "string",
+                        "example": "https://resource.vipkid.com.cn/static/images/common/avatar/default.png"
+                    },
+                    "student_name": {
+                        "title": "",
+                        "description": "学生姓名",
+                        "type": "string",
+                        "format": "string",
+                        "example": "Charlie"
+                    },
+                    "teacher_avatar": {
+                        "title": "",
+                        "description": "外教头像",
+                        "type": "string",
+                        "format": "string",
+                        "example": "https://dl.vipkidstatic.com/ter/teacher/avatar/ac695b96b5764b66bc65900d14659f3d/image_20180526131134_2d760fa7694e4d6d80a546590ac38fa2.png"
+                    },
+                    "teacher_name": {
+                        "title": "",
+                        "description": "外教姓名",
+                        "type": "string",
+                        "format": "string",
+                        "example": "Eric EFA"
+                    },
+                    "class_id": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 78225473013491
+                    },
+                    "curmonth": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 5
+                    },
+                    "lesson_id": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 842745
+                    },
+                    "premonth": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 7
+                    },
+                    "student_id": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 22533491
+                    },
+                    "student_num": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 76
+                    },
+                    "teacher_id": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 15038397
+                    },
+                    "teacher_num": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 2675
+                    },
+                    "teacher_to_student": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 30
+                    },
+                    "tns_cnt": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 0
+                    }
+                },
+                "type": "object"
+            },
+            "ClassInfoResponse": {
+                "title": "ClassInfoResponse",
+                "description": "ClassInfoResponse",
+                "properties": {
+                    "code": {
+                        "title": "自定义响应码",
+                        "description": "自定义响应码",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 0
+                    },
+                    "msg": {
+                        "title": "响应信息",
+                        "description": "响应信息",
+                        "type": "string",
+                        "format": "string",
+                        "example": "成功"
+                    },
+                    "m_timestamp": {
+                        "title": "绝对时间戳",
+                        "description": "绝对时间戳",
+                        "type": "number",
+                        "format": "float",
+                        "example": 1568279892.931395
+                    },
+                    "data": {
+                        "title": "返回数据",
+                        "description": "返回数据",
+                        "$ref": "#/components/schemas/ClassInfo"
+                    }
+                },
+                "type": "object"
+            },
+            "ClassInfo": {
+                "title": "ClassInfo",
+                "description": "ClassInfo",
+                "properties": {
+                    "classroom": {
+                        "title": "",
+                        "description": "教室地址",
+                        "type": "string",
+                        "format": "string",
+                        "example": "jz46dff8ce1ba64bd1924ffb9288bed943"
+                    },
+                    "class_type": {
+                        "title": "",
+                        "description": "课堂类型",
+                        "type": "string",
+                        "format": "string",
+                        "example": "主修-UA"
+                    },
+                    "startTime": {
+                        "title": "",
+                        "description": "视频开始时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 1568377509
+                    },
+                    "endTime": {
+                        "title": "",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 1568375785
+                    }
+                },
+                "type": "object"
+            },
+            "HighVideoResponse": {
+                "title": "HighVideoResponse",
+                "description": "HighVideoResponse",
+                "properties": {
+                    "code": {
+                        "title": "自定义响应码",
+                        "description": "自定义响应码",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 200
+                    },
+                    "msg": {
+                        "title": "响应信息",
+                        "description": "响应信息",
+                        "type": "string",
+                        "format": "string",
+                        "default": "成功"
+                    },
+                    "m_timestamp": {
+                        "title": "绝对时间戳",
+                        "description": "绝对时间戳",
+                        "type": "number",
+                        "format": "float",
+                        "default": 1568279892.931395
+                    },
+                    "data": {
+                        "title": "返回数据",
+                        "description": "返回数据",
+                        "$ref": "#/components/schemas/HighVideos"
+                    }
+                },
+                "type": "object"
+            },
+            "HighVideos": {
+                "title": "HighVideos model",
+                "description": "HighVideos model",
+                "properties": {
+                    "url": {
+                        "title": "视频播放地址",
+                        "description": "视频播放地址",
+                        "type": "string",
+                        "format": "string",
+                        "default": "http://......./video.mp4"
+                    },
+                    "share_link": {
+                        "title": "分享视频链接",
+                        "description": "share_link",
+                        "type": "string",
+                        "format": "string",
+                        "default": "http://activity........"
+                    },
+                    "title": {
+                        "title": "分享链接标题",
+                        "description": "title",
+                        "type": "string",
+                        "format": "string",
+                        "default": "我的Cindy宝贝已经在VIPKID坚持学英语71天，快来围观吧~ "
+                    },
+                    "type": {
+                        "title": "视频样式",
+                        "description": "type 0.旧版横屏视频 1.新版竖屏视频",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": "0"
+                    },
+                    "pieces_count": {
+                        "title": "精彩片段数量",
+                        "description": "精彩片段数量",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 3
+                    },
+                    "pieces": {
+                        "title": "精彩视频片段",
+                        "description": "精彩视频片段",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/HighVideoPieces"
+                        },
+                        "default": "[{'start':25,'end':30},{'start':45,'end':50}]"
+                    }
+                },
+                "type": "object"
+            },
+            "HighVideoPieces": {
+                "title": "HighVideoPieces model",
+                "description": "HighVideoPieces model",
+                "properties": {
+                    "start": {
+                        "title": "视频开始时间",
+                        "description": "视频开始时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 3
+                    },
+                    "end": {
+                        "title": "视频结束时间",
+                        "description": "视频结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 3
+                    }
+                },
+                "type": "object"
+            },
+            "NoShowInfoResponse": {
+                "title": "NoShowInfoResponse",
+                "description": "NoShowInfoResponse",
+                "properties": {
+                    "code": {
+                        "title": "自定义响应码",
+                        "description": "自定义响应码",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 200
+                    },
+                    "msg": {
+                        "title": "响应信息",
+                        "description": "响应信息",
+                        "type": "string",
+                        "format": "string",
+                        "default": "成功"
+                    },
+                    "m_timestamp": {
+                        "title": "绝对时间戳",
+                        "description": "绝对时间戳",
+                        "type": "number",
+                        "format": "float",
+                        "default": 1568279892.931395
+                    },
+                    "data": {
+                        "title": "返回数据",
+                        "description": "返回数据",
+                        "$ref": "#/components/schemas/NoShowInfo"
+                    }
+                },
+                "type": "object"
+            },
+            "NoShowInfo": {
+                "title": "NoShowInfo model",
+                "description": "NoShowInfo model",
+                "properties": {
+                    "total": {
+                        "title": "无画面总时长",
+                        "description": "total",
+                        "type": "string",
+                        "format": "string",
+                        "default": "4m31s"
+                    },
+                    "stuTotal": {
+                        "title": "学生无画面总时长",
+                        "description": "stuTotal",
+                        "type": "string",
+                        "format": "string",
+                        "default": "3m31s"
+                    },
+                    "teaTotal": {
+                        "title": "外教无画面总时长",
+                        "description": "teaTotal",
+                        "type": "string",
+                        "format": "string",
+                        "default": "1m"
+                    },
+                    "dinoTeaList": {
+                        "title": "外教无画面片段",
+                        "description": "外教无画面片段",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NoShowInfoDict"
+                        },
+                        "default": "[{'from':25,'to':30},{'from':45,'to':50}]"
+                    },
+                    "dinoStuList": {
+                        "title": "学生无画面片段",
+                        "description": "学生无画面片段",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NoShowInfoDict"
+                        },
+                        "default": "[{'from':25,'to':30},{'from':45,'to':50}]"
+                    }
+                },
+                "type": "object"
+            },
+            "NoShowInfoDict": {
+                "title": "NoShowInfoDict model",
+                "description": "NoShowInfoDict model",
+                "properties": {
+                    "from": {
+                        "title": "片段开始时间",
+                        "description": "片段开始时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 3
+                    },
+                    "to": {
+                        "title": "片段结束时间",
+                        "description": "片段结束时间",
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 3
+                    }
+                },
+                "type": "object"
+            },
+            "PlaybackUrlResponse": {
+                "title": "PlaybackUrlResponse",
+                "description": "PlaybackUrlResponse",
+                "properties": {
+                    "code": {
+                        "title": "自定义响应码",
+                        "description": "自定义响应码",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 0
+                    },
+                    "msg": {
+                        "title": "响应信息",
+                        "description": "响应信息",
+                        "type": "string",
+                        "format": "string",
+                        "example": "成功"
+                    },
+                    "m_timestamp": {
+                        "title": "绝对时间戳",
+                        "description": "绝对时间戳",
+                        "type": "number",
+                        "format": "float",
+                        "example": 1568279892.931395
+                    },
+                    "data": {
+                        "title": "返回数据",
+                        "description": "返回数据",
+                        "$ref": "#/components/schemas/PlaybackUrl"
+                    }
+                },
+                "type": "object"
+            },
+            "PlaybackUrl": {
+                "title": "PlaybackUrl",
+                "description": "PlaybackUrl",
+                "properties": {
+                    "video_type": {
+                        "title": "",
+                        "description": "视频类型",
+                        "type": "string",
+                        "format": "string",
+                        "example": "1v1"
+                    },
+                    "isVps": {
+                        "title": "",
+                        "description": "isVps",
+                        "type": "boolean",
+                        "format": "bool",
+                        "example": true
+                    },
+                    "type": {
+                        "title": "",
+                        "description": "type",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 1
+                    },
+                    "url": {
+                        "title": "",
+                        "description": "视频回放地址",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "https://playback.vipkid.com.cn/playback/pc_a1.html?classroom=jz46dff8ce1ba64bd1924ffb9288bed943&token=eea0bff9f5a525a79ab815e52474b3b9&time=1569325575000&showMoment=true&autoSeekStart=true&showPageNum=true"
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "TeaDataResponse": {
+                "title": "TeaDataResponse",
+                "description": "TeaDataResponse",
+                "properties": {
+                    "code": {
+                        "title": "自定义响应码",
+                        "description": "自定义响应码",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 0
+                    },
+                    "msg": {
+                        "title": "响应信息",
+                        "description": "响应信息",
+                        "type": "string",
+                        "format": "string",
+                        "example": "成功"
+                    },
+                    "m_timestamp": {
+                        "title": "绝对时间戳",
+                        "description": "绝对时间戳",
+                        "type": "number",
+                        "format": "float",
+                        "example": 1568279892.931395
+                    },
+                    "data": {
+                        "title": "返回数据",
+                        "description": "返回数据",
+                        "$ref": "#/components/schemas/TeaDataList"
+                    }
+                },
+                "type": "object"
+            },
+            "TeaDataList": {
+                "title": "TeaDataList",
+                "description": "TeaDataList",
+                "properties": {
+                    "total_page": {
+                        "title": "",
+                        "description": "总页数",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "total": {
+                        "title": "",
+                        "description": "总数",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "isOrder": {
+                        "title": "",
+                        "description": "是否排序0否1是",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "data": {
+                        "title": "",
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TeaData"
+                        },
+                        "default": "[{'teacher_id':25,'count':30},{'teacher_id':45,'count':50}]"
+                    }
+                },
+                "type": "object"
+            },
+            "TeaData": {
+                "title": "TeaData",
+                "description": "TeaData",
+                "properties": {
+                    "teacher_id": {
+                        "title": "",
+                        "description": "外教id",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "count": {
+                        "title": "",
+                        "description": "问题课总量",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "complain_num": {
+                        "title": "",
+                        "description": "投诉课总数",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "tea_low_num": {
+                        "title": "",
+                        "description": "外教低苹果分数量",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "gray_rate": {
+                        "title": "",
+                        "description": "灰课率",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "finish_rate": {
+                        "title": "",
+                        "description": "完课率",
+                        "type": "number",
+                        "format": "float",
+                        "example": 0.235698
+                    },
+                    "complain_rate": {
+                        "title": "",
+                        "description": "投诉率",
+                        "type": "number",
+                        "format": "float",
+                        "example": 0.235698
+                    },
+                    "npf_rate": {
+                        "title": "",
+                        "description": "NPF率",
+                        "type": "number",
+                        "format": "float",
+                        "example": 0.235698
+                    },
+                    "as": {
+                        "title": "",
+                        "description": "AS课总数",
+                        "type": "number",
+                        "format": "float",
+                        "example": 0.235698
+                    },
+                    "tit": {
+                        "title": "",
+                        "description": "TIT课总数",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "tns": {
+                        "title": "",
+                        "description": "TNS课总数",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "tc": {
+                        "title": "",
+                        "description": "TC课总数",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "total": {
+                        "title": "",
+                        "description": "完课数量",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "tea_entry_days": {
+                        "title": "",
+                        "description": "入职天数",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 10
+                    },
+                    "top_points": {
+                        "title": "",
+                        "description": "top 问题点",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": "['投诉','外教低苹果分']"
+                    }
+                },
+                "type": "object"
+            },
+            "TeaQueryResponse": {
+                "title": "TeaQueryResponse",
+                "description": "TeaQueryResponse",
+                "properties": {
+                    "code": {
+                        "title": "自定义响应码",
+                        "description": "自定义响应码",
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 0
+                    },
+                    "msg": {
+                        "title": "响应信息",
+                        "description": "响应信息",
+                        "type": "string",
+                        "format": "string",
+                        "example": "成功"
+                    },
+                    "m_timestamp": {
+                        "title": "绝对时间戳",
+                        "description": "绝对时间戳",
+                        "type": "number",
+                        "format": "float",
+                        "example": 1568279892.931395
+                    },
+                    "data": {
+                        "title": "返回数据",
+                        "description": "返回数据",
+                        "$ref": "#/components/schemas/TeaQuery"
+                    }
+                },
+                "type": "object"
+            },
+            "TeaQuery": {
+                "title": "TeaQuery",
+                "description": "TeaQuery",
+                "properties": {
+                    "class_type": {
+                        "title": "",
+                        "description": "课程类型",
+                        "type": "object",
+                        "example": {
+                            "1": "主修课",
+                            "2": "试听课"
+                        }
+                    },
+                    "level": {
+                        "title": "",
+                        "description": "学生等级(形式为： id:属性值)",
+                        "type": "object",
+                        "example": {
+                            "1": "L1",
+                            "2": "L2",
+                            "3": "L3",
+                            "4": "L4",
+                            "5": "L5",
+                            "6": "L6",
+                            "7": "L7"
+                        }
+                    },
+                    "points": {
+                        "title": "",
+                        "description": "问题点(分组展示)",
+                        "type": "object",
+                        "example": [
+                            {
+                                "1": "外教迟到",
+                                "2": "外教授课时长不足",
+                                "3": "外教PPT未完成",
+                                "4": "外教微笑不足",
+                                "5": "外教TPR不足",
+                                "6": "外教语速过快"
+                            },
+                            {
+                                "7": "投诉",
+                                "8": "外教低苹果分"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

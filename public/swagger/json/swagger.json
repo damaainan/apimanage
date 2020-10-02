@@ -1,0 +1,3342 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ailab Api server",
+        "license": {
+            "name": "MIT"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://internal.ai.vipkid-qa.com.cn/",
+            "description": "qa Api server"
+        },
+        {
+            "url": "http://internal.ai.vipkid.com.cn/",
+            "description": "internal Api server"
+        },
+        {
+            "url": "http://10.22.60.240/",
+            "description": "ip Api server"
+        },
+        {
+            "url": "http://localhost2/ailabv1/public/index.php/",
+            "description": "local Api server"
+        }
+    ],
+    "paths": {
+        "/class_ct_api/hello": {
+            "get": {
+                "tags": [
+                    "ct"
+                ],
+                "summary": "hello",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "描述",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "hello {{$name}}"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                },
+                "operationId": "helloUsingGET"
+            }
+        },
+        "/class_ct_api/get_list": {
+            "get": {
+                "tags": [
+                    "ct"
+                ],
+                "summary": "get_list",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "description": "类别",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "orderby",
+                        "in": "query",
+                        "description": "排序",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "get_listUsingGET"
+            }
+        },
+        "/anti_spam_api/getStudentInfo": {
+            "get": {
+                "tags": [
+                    "antispam"
+                ],
+                "summary": "根据学生id 获取学生信息",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "学生id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "返回数据格式,1:Echarts格式,默认需解析格式",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getStudentInfoUsingGET"
+            }
+        },
+        "/anti_spam_api/getQuestionsType": {
+            "get": {
+                "tags": [
+                    "antispam"
+                ],
+                "summary": "问题类型分布",
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getQuestionsTypeUsingGET"
+            }
+        },
+        "/anti_spam_api/getQuestionsTrand": {
+            "get": {
+                "tags": [
+                    "antispam"
+                ],
+                "summary": "问题类型趋势",
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getQuestionsTrandUsingGET"
+            }
+        },
+        "/anti_spam_api/getAntiSpamSurver": {
+            "get": {
+                "tags": [
+                    "antispam"
+                ],
+                "summary": "反作弊识别总结",
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getAntiSpamSurverUsingGET"
+            }
+        },
+        "/anti_spam_api/getAntiSpamList": {
+            "get": {
+                "tags": [
+                    "antispam"
+                ],
+                "summary": "反作弊识别分页获取",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "页码",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "num",
+                        "in": "query",
+                        "description": "每页数量",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "城市",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "问题类型",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getAntiSpamListUsingGET"
+            }
+        },
+        "/cc_api/getStudentList": {
+            "get": {
+                "tags": [
+                    "cc_api"
+                ],
+                "summary": "cc列表页",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "页码",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "num",
+                        "in": "query",
+                        "description": "每页数量",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "cc_id",
+                        "in": "query",
+                        "description": "cc id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "district",
+                        "in": "query",
+                        "description": "地区",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "排序字段",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "排序方式",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getStudentListUsingGET"
+            }
+        },
+        "/userportrait_api/getStuPortrait": {
+            "get": {
+                "tags": [
+                    "userportrait_api用户画像"
+                ],
+                "summary": "用户分层获取学生画像信息",
+                "parameters": [
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getStuPortraitUsingGET"
+            }
+        },
+        "/userportrait_api/getNewStuPortrait": {
+            "get": {
+                "tags": [
+                    "userportrait_api用户画像"
+                ],
+                "summary": "获取学生画像信息（新）",
+                "parameters": [
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getNewStuPortraitUsingGET"
+            }
+        },
+        "/userportrait_api/getClassCalendar": {
+            "get": {
+                "tags": [
+                    "userportrait_api用户画像"
+                ],
+                "summary": "获取用户画像页课程日历(最近三个月)",
+                "parameters": [
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getClassCalendarUsingGET"
+            }
+        },
+        "/userportrait_api/getBookType": {
+            "get": {
+                "tags": [
+                    "userportrait_api用户画像"
+                ],
+                "summary": "获取用户画像页课程日历约课方式字段",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getBookTypeUsingGET"
+            }
+        },
+        "/regraph_api/getStudentList": {
+            "get": {
+                "tags": [
+                    "regraph_api关系图谱"
+                ],
+                "summary": "关系图谱列表页",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "要排序的字段名 id student_id 等",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "排序类型 asc desc",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "学习状态 1 学习中 2 学习完",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id 或 学生姓名",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "页码",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "num",
+                        "in": "query",
+                        "description": "每页数目",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getStudentListUsingGET"
+            }
+        },
+        "/regraph_api/getStudentInfo": {
+            "get": {
+                "tags": [
+                    "regraph_api关系图谱"
+                ],
+                "summary": "获取学生关系图谱数据",
+                "parameters": [
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "是否返回 Echarts 格式数据 1 返回",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getStudentInfoUsingGET"
+            }
+        },
+        "/cp_api/getClassInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "看课平台获取视频基本信息",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/ClassInfoResponse"
+                        }
+                    }
+                },
+                "operationId": "getClassInfoUsingGET"
+            }
+        },
+        "/cp_api/getBaseInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "看课平台获取课程基本信息",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/BaseInfoResponse"
+                        }
+                    }
+                },
+                "operationId": "getBaseInfoUsingGET"
+            }
+        },
+        "/cp_api/getHighVideos": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "看课平台获取精彩视频",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 123
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/HighVideoResponse"
+                        }
+                    }
+                },
+                "operationId": "getHighVideosUsingGET"
+            }
+        },
+        "/cp_api/getClassroom": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "看课平台获取 classroom",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getClassroomUsingGET"
+            }
+        },
+        "/cp_api/getClassTags": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取系统设置的标签",
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getClassTagsUsingGET"
+            }
+        },
+        "/cp_api/getClassUserTags": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取用户关于课程的打点信息",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getClassUserTagsUsingGET"
+            }
+        },
+        "/cp_api/downloadVideo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "下载视频",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "description": "视频地址(需要 urlencode 处理)",
+                        "required": true,
+                        "schema": {
+                            "type": "url"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "downloadVideoUsingGET"
+            }
+        },
+        "/cp_api/alterClassUserTags": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "用户 课程打点 可以新增 修改 刪除 ",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "用户打的点的id(传此参数则更新)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "tag_id",
+                        "in": "query",
+                        "description": "标签id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "员工id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "depart",
+                        "in": "query",
+                        "description": "员工部门",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "desc",
+                        "in": "query",
+                        "description": "点的描述",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "description": "标签时间点",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "is_del",
+                        "in": "query",
+                        "description": "是否删除1否2删除",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "alterClassUserTagsUsingGET"
+            }
+        },
+        "/cp_api/getClassComments": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取课程评论",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getClassCommentsUsingGET"
+            }
+        },
+        "/cp_api/alterClassComments": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "添加 修改 删除 课程评论",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "评论的id(传此参数则更新)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "description": "被回复的评论的id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "员工id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "depart",
+                        "in": "query",
+                        "description": "员工部门",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "评论内容(新加时必传)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tag",
+                        "in": "query",
+                        "description": "标签内容",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_del",
+                        "in": "query",
+                        "description": "是否删除0否1删除",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": "0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "alterClassCommentsUsingGET"
+            }
+        },
+        "/cp_api/addCpSuggest": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "添加平台建议",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "员工id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "depart",
+                        "in": "query",
+                        "description": "员工部门",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "员工姓名",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "content",
+                        "in": "query",
+                        "description": "建议内容",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_del",
+                        "in": "query",
+                        "description": "是否删除0否1删除",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": "0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "addCpSuggestUsingGET"
+            }
+        },
+        "/cp_api/getClassReportFormat": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取看课报告-解决方案标准",
+                "parameters": [
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "课标，ppt 名",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "人员id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getClassReportFormatUsingGET"
+            }
+        },
+        "/cp_api/getUserClassReport": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取用户的看课报告内容-解决方案",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "人员id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getUserClassReportUsingGET"
+            }
+        },
+        "/cp_api/alterClassReport": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "添加 修改 删除 看课报告-解决方案",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "format_id",
+                        "in": "query",
+                        "description": "标准的id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "已添加的看课报告--解决方案 id(添加则为更新)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "员工id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "depart",
+                        "in": "query",
+                        "description": "员工部门",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_del",
+                        "in": "query",
+                        "description": "是否删除0否1删除",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": "0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "alterClassReportUsingGET"
+            }
+        },
+        "/cp_api/getClassReport": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取看课报告",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getClassReportUsingGET"
+            }
+        },
+        "/cp_api/getClassViewStats": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "批量获取课程看课状态",
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "课程id 英文逗号连接的字符串 1,2,3 ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "员工id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "部门代码 lp cc 等",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getClassViewStatsUsingGET"
+            }
+        },
+        "/cp_api/getClassViewStat": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取课程看课状态",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "员工id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "depart",
+                        "in": "query",
+                        "description": "部门 lp cc 等",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getClassViewStatUsingGET"
+            }
+        },
+        "/cp_api/alterClassViewStat": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "添加 修改 删除 课程看课状态",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "员工id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "depart",
+                        "in": "query",
+                        "description": "员工部门",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_view",
+                        "in": "query",
+                        "description": "是否看过0否1看过",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "alterClassViewStatUsingGET"
+            }
+        },
+        "/cp_api/getUaLoseScore": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取 UA 课失分点",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getUaLoseScoreUsingGET"
+            }
+        },
+        "/cp_api/getUaLoseScoreInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取UA 课失分点泳道数据",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getUaLoseScoreInfoUsingGET"
+            }
+        },
+        "/cp_api/getAudioInfo": {
+            "post": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "转发语音接口数据",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "ssoToken",
+                        "in": "query",
+                        "description": "ssoToken",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getAudioInfoUsingPOST"
+            }
+        },
+        "/cp_api/getClassOutline": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取课件大纲 ",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getClassOutlineUsingGET"
+            }
+        },
+        "/cp_api/getClassQos": {
+            "post": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取 QOS 信息",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "ssoToken",
+                        "in": "query",
+                        "description": "ssoToken",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getClassQosUsingPOST"
+            }
+        },
+        "/cp_api/getAiHealthData": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取师生 AI 健康指标度",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "ssoToken",
+                        "in": "query",
+                        "description": "ssoToken",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getAiHealthDataUsingGET"
+            }
+        },
+        "/cp_api/getPptInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取ppt板块信息和情绪曲线",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getPptInfoUsingGET"
+            }
+        },
+        "/cp_api/getEmotionInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取情绪曲线",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "deprecated": true,
+                "operationId": "getEmotionInfoUsingGET"
+            }
+        },
+        "/cp_api/getNoShowInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取师生无画面泳道信息",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/NoShowInfoResponse"
+                        }
+                    }
+                },
+                "operationId": "getNoShowInfoUsingGET"
+            }
+        },
+        "/cp_api/getPptFinishInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取 ppt 完成度信息",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getPptFinishInfoUsingGET"
+            }
+        },
+        "/cp_api/getPlaybackUrl": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取回放视频 url ",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/PlaybackUrlResponse"
+                        }
+                    }
+                },
+                "operationId": "getPlaybackUrlUsingGET"
+            }
+        },
+        "/cp_api/getAudioTextInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取语音识别结果",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getAudioTextInfoUsingGET"
+            }
+        },
+        "/cp_api/getAudioCalcInfo": {
+            "get": {
+                "tags": [
+                    "cp_api--AI看课"
+                ],
+                "summary": "获取沉默时长等指标",
+                "parameters": [
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getAudioCalcInfoUsingGET"
+            }
+        },
+        "/cq_api/getQueryList": {
+            "get": {
+                "tags": [
+                    "课堂质量"
+                ],
+                "summary": "获取课堂质量可选项",
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getQueryListUsingGET"
+            }
+        },
+        "/cq_api/getDataUpdate": {
+            "get": {
+                "tags": [
+                    "课堂质量"
+                ],
+                "summary": "获取问题点更新时间",
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getDataUpdateUsingGET"
+            }
+        },
+        "/cq_api/getDataList": {
+            "get": {
+                "tags": [
+                    "课堂质量"
+                ],
+                "summary": "获取问题课列表接口（可导出）",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "页码，默认1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "每页数据条数，默认20",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "开始查询时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "query",
+                        "description": "终止查询时间 0000-00-00 00:00:00 形式,默认当前时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teacher_id",
+                        "in": "query",
+                        "description": "外教id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "学生等级(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pro_point",
+                        "in": "query",
+                        "description": "问题点id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_type",
+                        "in": "query",
+                        "description": "课程类型 1 主修课 2 试听课",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "teacher_class_num",
+                        "in": "query",
+                        "description": "外教的第N节主修课",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "is_trail",
+                        "in": "query",
+                        "description": "是否试听课，0否1是",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "is_ua",
+                        "in": "query",
+                        "description": "是否UA课，0否1是",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getDataListUsingGET"
+            }
+        },
+        "/cq_api/exportDataCsv": {
+            "get": {
+                "tags": [
+                    "课堂质量"
+                ],
+                "summary": "导出问题课接口（CSV）",
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "开始查询时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "query",
+                        "description": "终止查询时间 0000-00-00 00:00:00 形式,默认当前时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teacher_id",
+                        "in": "query",
+                        "description": "外教id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "学生等级(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pro_point",
+                        "in": "query",
+                        "description": "问题点id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_type",
+                        "in": "query",
+                        "description": "课程类型 1 主修课 2 试听课",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "teacher_class_num",
+                        "in": "query",
+                        "description": "外教的第N节主修课",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "is_trail",
+                        "in": "query",
+                        "description": "是否试听课，0否1是",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "is_ua",
+                        "in": "query",
+                        "description": "是否UA课，0否1是",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "exportDataCsvUsingGET"
+            }
+        },
+        "/cq_api/getTeaQueryList": {
+            "get": {
+                "tags": [
+                    "课堂质量"
+                ],
+                "summary": "获取问题外教可选项",
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/TeaQueryResponse"
+                        }
+                    }
+                },
+                "operationId": "getTeaQueryListUsingGET"
+            }
+        },
+        "/cq_api/getTeaDataList": {
+            "get": {
+                "tags": [
+                    "课堂质量"
+                ],
+                "summary": "获取问题外教列表接口（可导出）",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "页码，默认1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "每页数据条数，默认20",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "开始查询时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "query",
+                        "description": "终止查询时间 0000-00-00 00:00:00 形式,默认当前时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teacher_id",
+                        "in": "query",
+                        "description": "外教id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "学生等级(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pro_point",
+                        "in": "query",
+                        "description": "问题点id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_type",
+                        "in": "query",
+                        "description": "课程类型 1 主修课 2 试听课",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/TeaDataResponse"
+                        }
+                    }
+                },
+                "operationId": "getTeaDataListUsingGET"
+            }
+        },
+        "/cq_api/exportTeaDataToEmail": {
+            "get": {
+                "tags": [
+                    "课堂质量"
+                ],
+                "summary": "导出问题课接口--发送附件到用户邮箱",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "登录用户邮箱",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "开始查询时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "query",
+                        "description": "终止查询时间 0000-00-00 00:00:00 形式,默认当前时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teacher_id",
+                        "in": "query",
+                        "description": "外教id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "学生等级(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pro_point",
+                        "in": "query",
+                        "description": "问题点id(多条用英文逗号连接)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class_type",
+                        "in": "query",
+                        "description": "课程类型 1 主修课 2 试听课",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "exportTeaDataToEmailUsingGET"
+            }
+        },
+        "/analyse/getQueryList": {
+            "get": {
+                "tags": [
+                    "analyse--AI问题课监控"
+                ],
+                "summary": "获取AI问题课监控可选项",
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getQueryListUsingGET"
+            }
+        },
+        "/analyse/getDataList": {
+            "get": {
+                "tags": [
+                    "analyse--AI问题课监控"
+                ],
+                "summary": "获取AI问题课列表接口（可导出）",
+                "parameters": [
+                    {
+                        "name": "is_export",
+                        "in": "query",
+                        "description": "是否导出，0不导出，1导出，默认0",
+                        "required": false,
+                        "schema": {
+                            "type": "interger"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "页码，默认1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "每页数据条数，默认20",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "开始查询时间",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "query",
+                        "description": "终止查询时间 0000-00-00 00:00:00 形式,默认当前时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teacher_id",
+                        "in": "query",
+                        "description": "外教id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "学生等级",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "student_status",
+                        "in": "query",
+                        "description": "学生状态",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "student_id",
+                        "in": "query",
+                        "description": "学生id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "class_type",
+                        "in": "query",
+                        "description": "课程类型",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_trail",
+                        "in": "query",
+                        "description": "是否试听课，0否1是",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "complain_type",
+                        "in": "query",
+                        "description": "投诉类型",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rating",
+                        "in": "query",
+                        "description": "苹果分",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "rate_tag",
+                        "in": "query",
+                        "description": "苹果分标签",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "AI健康指标参数，形式如{'名称':{'start'：'起始值','end':'终止值'},……}",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getDataListUsingGET"
+            }
+        },
+        "/datadock/insertCqTeacherInfo": {
+            "post": {
+                "tags": [
+                    "datadock--接收数据接口"
+                ],
+                "summary": "接收外教信息接口",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "insertCqTeacherInfoUsingPOST"
+            }
+        },
+        "/system/addVisitLog": {
+            "get": {
+                "tags": [
+                    "system--系统接口"
+                ],
+                "summary": "添加页面访问记录",
+                "parameters": [
+                    {
+                        "name": "module",
+                        "in": "query",
+                        "description": "模块 lp cc等",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "访问者id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "staff_type",
+                        "in": "query",
+                        "description": "访问者的类型 1 staff 2 student",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "source",
+                        "in": "query",
+                        "description": "当前页面的文件名称 ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "addVisitLogUsingGET"
+            }
+        },
+        "/system/addStayInfo": {
+            "get": {
+                "tags": [
+                    "system--系统接口"
+                ],
+                "summary": "记录页面停留时长，视频播放时长",
+                "parameters": [
+                    {
+                        "name": "staff_id",
+                        "in": "query",
+                        "description": "访问者id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "class_id",
+                        "in": "query",
+                        "description": "课程id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "开始时间戳 秒",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "query",
+                        "description": "结束时间戳 秒",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "记录类型 1 页面停留时长(默认)  2 视频播放时长 ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "addStayInfoUsingGET"
+            }
+        },
+        "/system/getAllErrorCodes": {
+            "get": {
+                "tags": [
+                    "system--系统接口"
+                ],
+                "summary": "错误信息提示码含义",
+                "responses": {
+                    "200": {
+                        "schema": []
+                    }
+                },
+                "operationId": "getAllErrorCodesUsingGET"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "ct",
+            "description": ""
+        },
+        {
+            "name": "antispam",
+            "description": ""
+        },
+        {
+            "name": "cc_api",
+            "description": ""
+        },
+        {
+            "name": "userportrait_api用户画像",
+            "description": ""
+        },
+        {
+            "name": "regraph_api关系图谱",
+            "description": ""
+        },
+        {
+            "name": "cp_api--AI看课",
+            "description": ""
+        },
+        {
+            "name": "课堂质量",
+            "description": ""
+        },
+        {
+            "name": "analyse--AI问题课监控",
+            "description": ""
+        },
+        {
+            "name": "datadock--接收数据接口",
+            "description": ""
+        },
+        {
+            "name": "system--系统接口",
+            "description": ""
+        }
+    ],
+    "definitions": {
+        "ApiCodeTest": {
+            "title": "ApiCode model",
+            "description": "ApiCode model",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 200
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "default": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "default": 1568279892.931395
+                },
+                "data": {
+                    "title": "返回数据",
+                    "description": "返回数据",
+                    "$ref": "#/definitions/HighVideos"
+                }
+            },
+            "type": "object"
+        },
+        "BaseInfoResponse": {
+            "title": "BaseInfoResponse",
+            "description": "BaseInfoResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "example": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "example": 1568279892.931395
+                },
+                "data": {
+                    "title": "返回数据",
+                    "description": "返回数据",
+                    "$ref": "#/definitions/BaseInfo"
+                }
+            },
+            "type": "object"
+        },
+        "BaseInfo": {
+            "title": "BaseInfo",
+            "description": "BaseInfo",
+            "properties": {
+                "appeal": {
+                    "title": "",
+                    "description": "外教诉求",
+                    "type": "string",
+                    "format": "string",
+                    "example": "活泼,男"
+                },
+                "class_time": {
+                    "title": "",
+                    "description": "上课时间",
+                    "type": "string",
+                    "format": "string",
+                    "example": "2019-09-13 20:00:00"
+                },
+                "class_type": {
+                    "title": "",
+                    "description": "课堂类型",
+                    "type": "string",
+                    "format": "string",
+                    "example": "主修-UA"
+                },
+                "classroom": {
+                    "title": "",
+                    "description": "教室地址",
+                    "type": "string",
+                    "format": "string",
+                    "example": "jz46dff8ce1ba64bd1924ffb9288bed943"
+                },
+                "course_name": {
+                    "title": "",
+                    "description": "课程名",
+                    "type": "string",
+                    "format": "string",
+                    "example": "新版VIPKID主修课程"
+                },
+                "good_rate": {
+                    "title": "",
+                    "description": "好评率",
+                    "type": "string",
+                    "format": "string",
+                    "example": "100%"
+                },
+                "level": {
+                    "title": "",
+                    "description": "等级",
+                    "type": "string",
+                    "format": "string",
+                    "example": "MC-L2-U10-LC1-6"
+                },
+                "ppt_name": {
+                    "title": "",
+                    "description": "ppt名",
+                    "type": "string",
+                    "format": "string",
+                    "example": "MC-L2-U10-LC1-6"
+                },
+                "present_rate": {
+                    "title": "",
+                    "description": "出勤率",
+                    "type": "string",
+                    "format": "string",
+                    "example": "100%"
+                },
+                "student_avatar": {
+                    "title": "",
+                    "description": "学生头像",
+                    "type": "string",
+                    "format": "string",
+                    "example": "https://resource.vipkid.com.cn/static/images/common/avatar/default.png"
+                },
+                "student_name": {
+                    "title": "",
+                    "description": "学生姓名",
+                    "type": "string",
+                    "format": "string",
+                    "example": "Charlie"
+                },
+                "teacher_avatar": {
+                    "title": "",
+                    "description": "外教头像",
+                    "type": "string",
+                    "format": "string",
+                    "example": "https://dl.vipkidstatic.com/ter/teacher/avatar/ac695b96b5764b66bc65900d14659f3d/image_20180526131134_2d760fa7694e4d6d80a546590ac38fa2.png"
+                },
+                "teacher_name": {
+                    "title": "",
+                    "description": "外教姓名",
+                    "type": "string",
+                    "format": "string",
+                    "example": "Eric EFA"
+                },
+                "class_id": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 78225473013491
+                },
+                "curmonth": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 5
+                },
+                "lesson_id": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 842745
+                },
+                "premonth": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 7
+                },
+                "student_id": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 22533491
+                },
+                "student_num": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 76
+                },
+                "teacher_id": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 15038397
+                },
+                "teacher_num": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 2675
+                },
+                "teacher_to_student": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 30
+                },
+                "tns_cnt": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "type": "object"
+        },
+        "ClassInfoResponse": {
+            "title": "ClassInfoResponse",
+            "description": "ClassInfoResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "example": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "example": 1568279892.931395
+                },
+                "data": {
+                    "title": "返回数据",
+                    "description": "返回数据",
+                    "$ref": "#/definitions/ClassInfo"
+                }
+            },
+            "type": "object"
+        },
+        "ClassInfo": {
+            "title": "ClassInfo",
+            "description": "ClassInfo",
+            "properties": {
+                "classroom": {
+                    "title": "",
+                    "description": "教室地址",
+                    "type": "string",
+                    "format": "string",
+                    "example": "jz46dff8ce1ba64bd1924ffb9288bed943"
+                },
+                "class_type": {
+                    "title": "",
+                    "description": "课堂类型",
+                    "type": "string",
+                    "format": "string",
+                    "example": "主修-UA"
+                },
+                "startTime": {
+                    "title": "",
+                    "description": "视频开始时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1568377509
+                },
+                "endTime": {
+                    "title": "",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1568375785
+                }
+            },
+            "type": "object"
+        },
+        "HighVideoResponse": {
+            "title": "HighVideoResponse",
+            "description": "HighVideoResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 200
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "default": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "default": 1568279892.931395
+                },
+                "data": {
+                    "title": "返回数据",
+                    "description": "返回数据",
+                    "$ref": "#/definitions/HighVideos"
+                }
+            },
+            "type": "object"
+        },
+        "HighVideos": {
+            "title": "HighVideos model",
+            "description": "HighVideos model",
+            "properties": {
+                "url": {
+                    "title": "视频播放地址",
+                    "description": "视频播放地址",
+                    "type": "string",
+                    "format": "string",
+                    "default": "http://......./video.mp4"
+                },
+                "share_link": {
+                    "title": "分享视频链接",
+                    "description": "share_link",
+                    "type": "string",
+                    "format": "string",
+                    "default": "http://activity........"
+                },
+                "title": {
+                    "title": "分享链接标题",
+                    "description": "title",
+                    "type": "string",
+                    "format": "string",
+                    "default": "我的Cindy宝贝已经在VIPKID坚持学英语71天，快来围观吧~ "
+                },
+                "type": {
+                    "title": "视频样式",
+                    "description": "type 0.旧版横屏视频 1.新版竖屏视频",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": "0"
+                },
+                "pieces_count": {
+                    "title": "精彩片段数量",
+                    "description": "精彩片段数量",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 3
+                },
+                "pieces": {
+                    "title": "精彩视频片段",
+                    "description": "精彩视频片段",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/HighVideoPieces"
+                    },
+                    "default": "[{'start':25,'end':30},{'start':45,'end':50}]"
+                }
+            },
+            "type": "object"
+        },
+        "HighVideoPieces": {
+            "title": "HighVideoPieces model",
+            "description": "HighVideoPieces model",
+            "properties": {
+                "start": {
+                    "title": "视频开始时间",
+                    "description": "视频开始时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 3
+                },
+                "end": {
+                    "title": "视频结束时间",
+                    "description": "视频结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 3
+                }
+            },
+            "type": "object"
+        },
+        "NoShowInfoResponse": {
+            "title": "NoShowInfoResponse",
+            "description": "NoShowInfoResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 200
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "default": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "default": 1568279892.931395
+                },
+                "data": {
+                    "title": "返回数据",
+                    "description": "返回数据",
+                    "$ref": "#/definitions/NoShowInfo"
+                }
+            },
+            "type": "object"
+        },
+        "NoShowInfo": {
+            "title": "NoShowInfo model",
+            "description": "NoShowInfo model",
+            "properties": {
+                "total": {
+                    "title": "无画面总时长",
+                    "description": "total",
+                    "type": "string",
+                    "format": "string",
+                    "default": "4m31s"
+                },
+                "stuTotal": {
+                    "title": "学生无画面总时长",
+                    "description": "stuTotal",
+                    "type": "string",
+                    "format": "string",
+                    "default": "3m31s"
+                },
+                "teaTotal": {
+                    "title": "外教无画面总时长",
+                    "description": "teaTotal",
+                    "type": "string",
+                    "format": "string",
+                    "default": "1m"
+                },
+                "dinoTeaList": {
+                    "title": "外教无画面片段",
+                    "description": "外教无画面片段",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NoShowInfoDict"
+                    },
+                    "default": "[{'from':25,'to':30},{'from':45,'to':50}]"
+                },
+                "dinoStuList": {
+                    "title": "学生无画面片段",
+                    "description": "学生无画面片段",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NoShowInfoDict"
+                    },
+                    "default": "[{'from':25,'to':30},{'from':45,'to':50}]"
+                }
+            },
+            "type": "object"
+        },
+        "NoShowInfoDict": {
+            "title": "NoShowInfoDict model",
+            "description": "NoShowInfoDict model",
+            "properties": {
+                "from": {
+                    "title": "片段开始时间",
+                    "description": "片段开始时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 3
+                },
+                "to": {
+                    "title": "片段结束时间",
+                    "description": "片段结束时间",
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 3
+                }
+            },
+            "type": "object"
+        },
+        "PlaybackUrlResponse": {
+            "title": "PlaybackUrlResponse",
+            "description": "PlaybackUrlResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "example": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "example": 1568279892.931395
+                },
+                "data": {
+                    "title": "返回数据",
+                    "description": "返回数据",
+                    "$ref": "#/definitions/PlaybackUrl"
+                }
+            },
+            "type": "object"
+        },
+        "PlaybackUrl": {
+            "title": "PlaybackUrl",
+            "description": "PlaybackUrl",
+            "properties": {
+                "video_type": {
+                    "title": "",
+                    "description": "视频类型",
+                    "type": "string",
+                    "format": "string",
+                    "example": "1v1"
+                },
+                "isVps": {
+                    "title": "",
+                    "description": "isVps",
+                    "type": "boolean",
+                    "format": "bool",
+                    "example": true
+                },
+                "type": {
+                    "title": "",
+                    "description": "type",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1
+                },
+                "url": {
+                    "title": "",
+                    "description": "视频回放地址",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "https://playback.vipkid.com.cn/playback/pc_a1.html?classroom=jz46dff8ce1ba64bd1924ffb9288bed943&token=eea0bff9f5a525a79ab815e52474b3b9&time=1569325575000&showMoment=true&autoSeekStart=true&showPageNum=true"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "TeaDataResponse": {
+            "title": "TeaDataResponse",
+            "description": "TeaDataResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "example": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "example": 1568279892.931395
+                },
+                "data": {
+                    "title": "返回数据",
+                    "description": "返回数据",
+                    "$ref": "#/definitions/TeaDataList"
+                }
+            },
+            "type": "object"
+        },
+        "TeaDataList": {
+            "title": "TeaDataList",
+            "description": "TeaDataList",
+            "properties": {
+                "total_page": {
+                    "title": "",
+                    "description": "总页数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "total": {
+                    "title": "",
+                    "description": "总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "isOrder": {
+                    "title": "",
+                    "description": "是否排序0否1是",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "data": {
+                    "title": "",
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TeaData"
+                    },
+                    "default": "[{'teacher_id':25,'count':30},{'teacher_id':45,'count':50}]"
+                }
+            },
+            "type": "object"
+        },
+        "TeaData": {
+            "title": "TeaData",
+            "description": "TeaData",
+            "properties": {
+                "teacher_id": {
+                    "title": "",
+                    "description": "外教id",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "count": {
+                    "title": "",
+                    "description": "问题课总量",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "complain_num": {
+                    "title": "",
+                    "description": "投诉课总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "tea_low_num": {
+                    "title": "",
+                    "description": "外教低苹果分数量",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "gray_rate": {
+                    "title": "",
+                    "description": "灰课率",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "finish_rate": {
+                    "title": "",
+                    "description": "完课率",
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.235698
+                },
+                "complain_rate": {
+                    "title": "",
+                    "description": "投诉率",
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.235698
+                },
+                "npf_rate": {
+                    "title": "",
+                    "description": "NPF率",
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.235698
+                },
+                "as": {
+                    "title": "",
+                    "description": "AS课总数",
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.235698
+                },
+                "tit": {
+                    "title": "",
+                    "description": "TIT课总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "tns": {
+                    "title": "",
+                    "description": "TNS课总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "tc": {
+                    "title": "",
+                    "description": "TC课总数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "total": {
+                    "title": "",
+                    "description": "完课数量",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "tea_entry_days": {
+                    "title": "",
+                    "description": "入职天数",
+                    "type": "integer",
+                    "format": "int",
+                    "example": 10
+                },
+                "top_points": {
+                    "title": "",
+                    "description": "top 问题点",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": "['投诉','外教低苹果分']"
+                }
+            },
+            "type": "object"
+        },
+        "TeaQueryResponse": {
+            "title": "TeaQueryResponse",
+            "description": "TeaQueryResponse",
+            "properties": {
+                "code": {
+                    "title": "自定义响应码",
+                    "description": "自定义响应码",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "msg": {
+                    "title": "响应信息",
+                    "description": "响应信息",
+                    "type": "string",
+                    "format": "string",
+                    "example": "成功"
+                },
+                "m_timestamp": {
+                    "title": "绝对时间戳",
+                    "description": "绝对时间戳",
+                    "type": "number",
+                    "format": "float",
+                    "example": 1568279892.931395
+                },
+                "data": {
+                    "title": "返回数据",
+                    "description": "返回数据",
+                    "$ref": "#/definitions/TeaQuery"
+                }
+            },
+            "type": "object"
+        },
+        "TeaQuery": {
+            "title": "TeaQuery",
+            "description": "TeaQuery",
+            "properties": {
+                "class_type": {
+                    "title": "",
+                    "description": "课程类型",
+                    "type": "object",
+                    "example": {
+                        "1": "主修课",
+                        "2": "试听课"
+                    }
+                },
+                "level": {
+                    "title": "",
+                    "description": "学生等级(形式为： id:属性值)",
+                    "type": "object",
+                    "example": {
+                        "1": "L1",
+                        "2": "L2",
+                        "3": "L3",
+                        "4": "L4",
+                        "5": "L5",
+                        "6": "L6",
+                        "7": "L7"
+                    }
+                },
+                "points": {
+                    "title": "",
+                    "description": "问题点",
+                    "type": "object",
+                    "example": [
+                        {
+                            "1": "外教迟到",
+                            "2": "外教授课时长不足",
+                            "3": "外教PPT未完成",
+                            "4": "外教微笑不足",
+                            "5": "外教TPR不足",
+                            "6": "外教语速过快"
+                        },
+                        {
+                            "7": "投诉",
+                            "8": "外教低苹果分"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        }
+    },
+    "host": "localhost2",
+    "basePath": "/ailabv1/public/index.php/",
+    "consumes": "application/json",
+    "produces": "application/json"
+}
