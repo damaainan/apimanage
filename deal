@@ -5,14 +5,17 @@
 $frompath = $argv[1];
 $topath = $argv[2];
 
+const InPath = "./public/swagger-doc/"; // swagger-php 生成的原始 json 文件目录
+const OutPath = "./public/swagger/json/"; // 生成 swagger-bootstrap-ui 使用的 json 文档的输出目录
+
 // $path = "swagger.json";
 // dealJson($path);
-$path = "bones.json";
+$path = "bones.json"; // 待转化的文档名  可执行多次
 dealJson($path,$argc,$argv);
 
 function dealJson($path,$argc,$argv){
     // 输入的标准格式 swagger json 文件
-    $data = file_get_contents("./public/swagger-doc/" . $path);
+    $data = file_get_contents(InPath . $path);
     // $data = file_get_contents($frompath);
     $data = json_decode($data, true);
 
@@ -71,7 +74,7 @@ function dealJson($path,$argc,$argv){
     $json = str_replace("components/schemas", "definitions", $json);
 
     // 输出的格式化的 swagge json 文件
-    file_put_contents("./public/swagger/json/" . $path, $json);
+    file_put_contents(OutPath . $path, $json);
     // file_put_contents($topath, $json);
 }
 
