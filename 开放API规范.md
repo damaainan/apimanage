@@ -1,0 +1,1 @@
+https://github.com/fishead/OpenAPI-Specification/blob/master/versions/3.0.0.zhCN.md#schema
